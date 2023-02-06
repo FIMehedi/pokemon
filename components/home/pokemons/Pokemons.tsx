@@ -3,6 +3,7 @@
 import { GET_POKEMONS } from '@/queries/pokemonQueries';
 import { useQuery } from '@apollo/client';
 import PokemonCard, { IPokemon } from './PokemonCard';
+import ViewDeterminer from './view/ViewDeterminer';
 
 export default function Pokemons() {
 	const { loading, error, data } = useQuery(GET_POKEMONS, {
@@ -14,13 +15,15 @@ export default function Pokemons() {
 
 	if (loading) return <p className="text-center">Loading...</p>;
 
+	if (error) return <p className="text-center">{error.message}</p>;
+
 	return (
-		<div className="container px-4 md:px-6 2xl:px-16 pt-4 pb-20 mx-auto hidden md:flex flex-wrap gap-6 justify-center">
+		<ViewDeterminer>
 			{!loading &&
 				data.pokemons.results.length &&
 				data.pokemons.results.map((pokemon: IPokemon) => (
 					<PokemonCard key={`pokemon-${pokemon.id}`} pokemon={pokemon} />
 				))}
-		</div>
+		</ViewDeterminer>
 	);
 }

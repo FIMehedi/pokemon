@@ -25,7 +25,7 @@ export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
 
 	return (
 		<Link href={`/pokemon/${pokemon.name}`} className="">
-			<div className="character-card bg-white p-4 rounded-lg">
+			<div className="character-card bg-white p-4 rounded-lg w-fit mx-2 md:mx-0">
 				<div className="h-52 md:h-40 lg:h-44 xl:h-48 2xl:h-52 w-52 md:w-40 lg:w-44 xl:w-48 2xl:w-52 bg-[#f2f2f2] rounded-lg overflow-hidden relative p-8">
 					<Image
 						src={pokemon.artwork || pokemon.dreamworld}
