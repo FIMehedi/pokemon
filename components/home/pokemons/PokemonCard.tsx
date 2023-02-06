@@ -6,7 +6,8 @@ import Link from 'next/link';
 export interface IPokemon {
 	id: number;
 	name: string;
-	image: string;
+	artwork: string;
+	dreamworld: string;
 }
 
 interface IPokemonType {
@@ -23,14 +24,14 @@ export default function PokemonCard({ pokemon }: { pokemon: IPokemon }) {
 	});
 
 	return (
-		<Link href={`/${pokemon.name}`} className="">
+		<Link href={`/pokemon/${pokemon.name}`} className="">
 			<div className="character-card bg-white p-4 rounded-lg">
-				<div className="h-52 md:h-40 lg:h-44 xl:h-48 2xl:h-52 w-52 md:w-40 lg:w-44 xl:w-48 2xl:w-52 bg-[#f2f2f2] rounded-lg overflow-hidden relative">
+				<div className="h-52 md:h-40 lg:h-44 xl:h-48 2xl:h-52 w-52 md:w-40 lg:w-44 xl:w-48 2xl:w-52 bg-[#f2f2f2] rounded-lg overflow-hidden relative p-8">
 					<Image
-						src={pokemon.image}
+						src={pokemon.artwork || pokemon.dreamworld}
 						alt={pokemon.name}
-						width="300"
-						height="300"
+						width="100"
+						height="100"
 						className="w-full h-auto"
 					/>
 					<span className="absolute left-4 top-4 text-sm">#{pokemon.id}</span>

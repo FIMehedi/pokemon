@@ -3,7 +3,7 @@ import logoImg from '/assets/images/logo.png';
 
 export default function Logo() {
 	return (
-		<div className="mx-auto w-fit py-8">
+		<div className="mx-auto w-fit pt-8 pb-4">
 			<Image
 				src={logoImg}
 				alt="Pokemon"

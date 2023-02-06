@@ -2,6 +2,7 @@
 
 import { pokemonClient } from '@/apollo/client';
 import { ApolloProvider } from '@apollo/client';
+import { ThemeProvider } from '@material-tailwind/react';
 import { Ubuntu } from '@next/font/google';
 import './globals.css';
 
@@ -23,7 +24,9 @@ export default function RootLayout({
       */}
 			<head />
 			<body className={ubuntu.className}>
-				<ApolloProvider client={pokemonClient}>{children}</ApolloProvider>
+				<ApolloProvider client={pokemonClient}>
+					<ThemeProvider>{children}</ThemeProvider>
+				</ApolloProvider>
 			</body>
 		</html>
 	);
